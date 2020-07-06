@@ -1,0 +1,11 @@
+.centerBox{
+    max-width: 830px;
+}
+
+.centerBox__input{
+    border: 1px solid #343A
+}
+
+.centerBox__input:focus{
+    border: 1px solid #343A40
+}
