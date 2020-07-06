@@ -11,11 +11,10 @@ class CreateNewPageForm(forms.Form):
     content = forms.CharField(widget=forms.Textarea, label='Content')
 
 def index(request):
-    return render(request, "encyclopedia/index1.html")
-
-
+    return render(request, "encyclopedia/index.html")
+    
 def wiki(request):
-    return render(request, "encyclopedia/index.html", {
+    return render(request, "encyclopedia/wiki.html", {
         "entries": util.list_entries()
     })
 
