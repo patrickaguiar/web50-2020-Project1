@@ -4,15 +4,34 @@
     Encyclopedia
 {% endblock %}
 
-{% block body %}
-    <h1>Search results </h1>
+{% block content %}
 
-    <ul>
-        {% for entry in entries %}
-            <li><a href="/{{entry}}">{{entry}}</a></li>
-        {% empty %}
-            <li>Your query returned nothing</li>
-        {% endfor %}
-    </ul>
+<div class="row my-2">
+    <div class="col text-center">
+        <h1 class="h1">Search Results</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col text-center">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Page Name</th>
+                <th scope="col">Page URL</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for entry in entries %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td><a class="badge badge-light bg-transparent" href="{% url 'encyclopedia:entry_page' entry %}"><span class="h6">{{ entry }}</span></a></td>
+                    <td><a class="badge badge-light bg-transparent" href="{% url 'encyclopedia:entry_page' entry %}"><span class="h6">http://127.0.0.1:8000{% url 'encyclopedia:entry_page' entry %}</span></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+</div>
 
 {% endblock %}

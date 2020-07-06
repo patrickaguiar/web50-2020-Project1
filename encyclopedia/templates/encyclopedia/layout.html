@@ -48,7 +48,9 @@
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     {% if entry_name %}
                     <li class="nav-item mr-1 mb-1 mb-lg-0">
-                        <button class="btn btn-info btn-block" id="menu-toggle">Edit Entry</button>
+                        <form action="{% url 'encyclopedia:edit_entry_page' %}" method="GET">
+                            <button name=title value="{{entry_name}}" class="btn btn-info btn-block text-white" type="submit">Edit Entry</a>
+                        </form>
                     </li>
                     {% endif %}
                     <li class="nav-item align-items-center d-flex">
